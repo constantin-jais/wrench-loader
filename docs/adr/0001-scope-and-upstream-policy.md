@@ -6,11 +6,11 @@
 
 ## Context
 
-`disc-loader` is a companion repository in the Presto-Matic / Agent-O-Matic ecosystem. Its role is **rich document ingestion**. It is intentionally separate from the Presto-Matic product repo so heavy dependencies, operational lifecycle, and upstream tracking stay isolated.
+`wrench-loader` is a companion repository in the Presto-Matic / cos-matic ecosystem. Its role is **rich document ingestion**. It is intentionally separate from the Presto-Matic product repo so heavy dependencies, operational lifecycle, and upstream tracking stay isolated.
 
 ## Decision
 
-Build `disc-loader` as an upstream-first, sovereign Rust project:
+Build `wrench-loader` as an upstream-first, sovereign Rust project:
 
 - track upstream releases/tags/commits explicitly;
 - keep local patches small and temporary;

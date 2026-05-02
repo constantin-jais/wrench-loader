@@ -1,3 +1,3 @@
 fn main() {
-    println!("{}", disc_loader::summary());
+    println!("{}", wrench_loader::summary());
 }

@@ -1,4 +1,4 @@
-//! disc-loader — Sovereign rich-document ingestion worker/service backed by Xberg.
+//! wrench-loader — Sovereign rich-document ingestion worker/service backed by Xberg.
 //!
 //! This crate is intentionally a minimal skeleton. The first implementation
 //! increments must keep the upstream boundary explicit and preserve the
@@ -15,7 +15,7 @@ pub struct ProjectCard {
 
 /// The repository's initial scope card.
 pub const PROJECT: ProjectCard = ProjectCard {
-    name: "disc-loader",
+    name: "wrench-loader",
     role: "rich document ingestion",
     upstream: "Xberg",
     relationship: "External ingestion worker/service for Presto-Matic; integrates by queue/HTTP/object-store contract.",
@@ -35,7 +35,7 @@ mod tests {
 
     #[test]
     fn project_card_names_the_repo_and_upstream() {
-        assert_eq!(PROJECT.name, "disc-loader");
+        assert_eq!(PROJECT.name, "wrench-loader");
         assert_eq!(PROJECT.upstream, "Xberg");
         assert!(summary().contains(PROJECT.role));
     }
