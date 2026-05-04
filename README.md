@@ -16,25 +16,27 @@ Document parsers and OCR are high-blast-radius dependencies; they belong in an i
 
 ```mermaid
 graph TB
-    subgraph product["🎯 Product"]
-        RL["Presto-Matic · rumble-lm<br/>Collaborative Learning App"]
+    subgraph products["🎯 Rumble products"]
+        RL["rumble-lm<br/>Collaborative learning platform"]
+        RC["rumble-cos<br/>Public knowledge site"]
     end
-    subgraph agentic["🤖 Agentic Tools"]
-        cosmatic["cos-matic<br/>Config Compiler + Orchestrator"]
-        DL["wrench-loader<br/>Document Ingestion Worker"]
-        MC["gear-memory<br/>Local Agent Context"]
+    subgraph tools["🛠️ Sovereign tooling"]
+        CM["cos-matic<br/>Agent config + autonomous code-ops"]
+        WL["wrench-loader<br/>Document ingestion worker"]
+        GM["gear-memory<br/>Local agent context"]
     end
-    subgraph devops["🔧 DevOps Tools"]
-        LC["gear-cable<br/>Distribution Substrate"]
-        SD["gear-depot<br/>Registry Proxy / Cache"]
-        VI["vault-inspector<br/>Postgres Security Audit"]
+    subgraph infra["⚙️ Infrastructure"]
+        GC["gear-cable<br/>Distribution substrate"]
+        GD["gear-depot<br/>Registry proxy/cache"]
+        VI["vault-inspector<br/>Postgres security audit"]
     end
     RL --> WL
     RL --> GM
     RL --> VI
     RL --> GD
     RL --> GC
-    cosmatic --> LC
+    RC --> RL
+    CM --> GC
     WL --> GM
     style WL fill:#dbeafe,stroke:#2563eb,stroke-width:2px
 ```
@@ -73,7 +75,7 @@ cargo test --workspace --all-features
 
 | Repo                                                                  | Role                                           |
 | --------------------------------------------------------------------- | ---------------------------------------------- |
-| [Presto-Matic](https://github.com/constantin-jais/rumble-lm)          | Primary consumer — ingestion pipeline for RAG  |
+| [rumble-lm](https://github.com/constantin-jais/rumble-lm)          | Primary consumer — ingestion pipeline for RAG  |
 | [gear-memory](https://github.com/constantin-jais/gear-memory)         | Receives extracted text as agent context input |
 | [cos-matic](https://github.com/constantin-jais/cos-matic)     | Config compiler and autonomous orchestrator    |
 | [gear-cable](https://github.com/constantin-jais/gear-cable)           | Multi-platform distribution substrate          |
