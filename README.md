@@ -24,7 +24,7 @@ It produces evidence and structured outputs that higher layers can trust.
 - Long-term knowledge management UX: belongs to Rumble.
 - Persistent truth or semantic memory: belongs to Gear.
 - Strategic decisions about what to ingest next: belongs to Bolt or the product.
-- Database/security inspection: belongs to `vault-inspector` or `wrench-inspect` depending on scope.
+- Database/security inspection: belongs to `wrench-db-inspect` or `wrench-inspect` depending on scope.
 
 ## Allowed Dependencies
 
