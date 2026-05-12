@@ -1,0 +1,13 @@
+{
+  "version": "https://jsonfeed.org/version/1.1",
+  "title": "Example JSON Feed",
+  "items": [
+    {
+      "id": "json-item-1",
+      "url": "https://example.test/json-first",
+      "title": "First JSON Feed item",
+      "content_text": "Hello from JSON Feed.",
+      "date_published": "2026-06-30T00:00:00Z"
+    }
+  ]
+}

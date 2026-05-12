@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Example Atom</title>
+  <entry>
+    <id>tag:example.test,2026:first</id>
+    <title>First Atom item</title>
+    <link href="https://example.test/atom-first" />
+    <summary>Hello from Atom.</summary>
+    <updated>2026-06-30T00:00:00Z</updated>
+  </entry>
+</feed>
