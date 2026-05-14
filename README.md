@@ -6,6 +6,15 @@
 
 ---
 
+## Stack Role
+
+- **Maturity:** `dojo`.
+- **Current increment:** P1 CLI proof over P0 contracts.
+- **Learning value:** canonical ingestion, hostile-content evidence, fail-closed parser policy, and Gear source candidate handoff.
+- **Next quality step:** harden PDF/Office/feed/code adapters under license, security, and sandbox gates.
+
+See the ecosystem cockpit in [`constantin-jais/ecosystem/status.md`](https://github.com/constantin-jais/constantin-jais/blob/main/ecosystem/status.md).
+
 ## Purpose
 
 `wrench-loader` performs the dirty work of ingestion: PDF, Office, OCR, HTML, archives, and other rich documents are extracted into canonical text and metadata.
