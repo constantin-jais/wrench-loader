@@ -1,19 +1,53 @@
 # Wrench Loader
 
+[![CI](https://github.com/constantin-jais/wrench-loader/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/constantin-jais/wrench-loader/actions/workflows/ci.yml)
+[![Security](https://github.com/constantin-jais/wrench-loader/actions/workflows/security.yml/badge.svg?branch=main)](https://github.com/constantin-jais/wrench-loader/actions/workflows/security.yml)
+[![Contracts](https://github.com/constantin-jais/wrench-loader/actions/workflows/contracts.yml/badge.svg?branch=main)](https://github.com/constantin-jais/wrench-loader/actions/workflows/contracts.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 **Layer:** Wrench — Tooling  
 **Role:** document ingestion and canonical extraction  
 **Mission:** transform heterogeneous raw sources into clean, structured, auditable content.
 
 ---
 
-## Stack Role
+## Stack role
 
+- **Layer:** Wrench — Tooling.
+- **Role:** document ingestion and canonical extraction.
+- **Mission:** transform heterogeneous raw sources into clean, structured, auditable content.
 - **Maturity:** `dojo`.
+- **Scale-ready:** no — CLI/contracts/fixtures exist, while richer parsers still fail closed or need hardening.
 - **Current increment:** P1 CLI proof over P0 contracts.
 - **Learning value:** canonical ingestion, hostile-content evidence, fail-closed parser policy, and Gear source candidate handoff.
 - **Next quality step:** harden PDF/Office/feed/code adapters under license, security, and sandbox gates.
 
 See the ecosystem cockpit in [`constantin-jais/ecosystem/status.md`](https://github.com/constantin-jais/constantin-jais/blob/main/ecosystem/status.md).
+
+## Dogfooding
+
+This repository is part of the forge dogfooding loop: the ecosystem should use its own tools to make specs, maturity, contracts, releases, and product documentation observable.
+
+Current visible evidence:
+
+- CI, contract, and security workflows exercise ingestion and source-candidate boundaries;
+- fixtures frame parser, hostile-content, and fail-closed behavior;
+- README maturity notes keep PDF/Office/feed/code adapter limits explicit.
+
+Expected next evidence:
+
+- publish example canonical extraction outputs;
+- make sandbox and parser-policy evidence visible through fixtures and reports.
+
+Dogfooding claims should stay backed by visible commands, fixtures, CI workflows, generated reports, or linked docs.
+
+## Forge role
+
+`wrench-loader` is a Wrench capability used by Rumble products and Bolt plans when raw documents need deterministic extraction, normalization, and evidence before they can become trustworthy context.
+
+## Boundary
+
+It must not own long-term knowledge UX, product meaning, orchestration decisions, or durable memory. Rumble decides the user workflow, Bolt coordinates work, and Gear stores/indexes provenance and source references.
 
 ## Purpose
 
