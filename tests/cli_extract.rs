@@ -3,13 +3,13 @@ use std::{fs, process::Command};
 #[test]
 fn cli_extract_writes_canonical_evidence_and_candidate() {
     let temp_dir =
-        std::env::temp_dir().join(format!("wrench_loader_cli_test_{}", std::process::id()));
+        std::env::temp_dir().join(format!("gear_loader_cli_test_{}", std::process::id()));
     fs::create_dir_all(&temp_dir).expect("temp dir should be created");
     let canonical_path = temp_dir.join("canonical.json");
     let evidence_path = temp_dir.join("evidence.json");
     let candidate_path = temp_dir.join("candidate.json");
 
-    let status = Command::new(env!("CARGO_BIN_EXE_wrench-loader"))
+    let status = Command::new(env!("CARGO_BIN_EXE_gear-loader"))
         .args([
             "extract",
             "--input",
@@ -50,15 +50,13 @@ fn cli_extract_writes_canonical_evidence_and_candidate() {
 
 #[test]
 fn cli_extract_code_writes_language_metadata() {
-    let temp_dir = std::env::temp_dir().join(format!(
-        "wrench_loader_cli_code_test_{}",
-        std::process::id()
-    ));
+    let temp_dir =
+        std::env::temp_dir().join(format!("gear_loader_cli_code_test_{}", std::process::id()));
     fs::create_dir_all(&temp_dir).expect("temp dir should be created");
     let canonical_path = temp_dir.join("code-canonical.json");
     let evidence_path = temp_dir.join("code-evidence.json");
 
-    let status = Command::new(env!("CARGO_BIN_EXE_wrench-loader"))
+    let status = Command::new(env!("CARGO_BIN_EXE_gear-loader"))
         .args([
             "extract",
             "--input",
@@ -88,10 +86,10 @@ fn cli_extract_code_writes_language_metadata() {
 #[test]
 fn cli_extract_pdf_fails_closed_without_approved_parser() {
     let temp_dir =
-        std::env::temp_dir().join(format!("wrench_loader_cli_pdf_test_{}", std::process::id()));
+        std::env::temp_dir().join(format!("gear_loader_cli_pdf_test_{}", std::process::id()));
     fs::create_dir_all(&temp_dir).expect("temp dir should be created");
 
-    let output = Command::new(env!("CARGO_BIN_EXE_wrench-loader"))
+    let output = Command::new(env!("CARGO_BIN_EXE_gear-loader"))
         .args([
             "extract",
             "--input",
@@ -118,12 +116,12 @@ fn cli_extract_pdf_fails_closed_without_approved_parser() {
 #[test]
 fn cli_extract_office_fails_closed_without_approved_parser() {
     let temp_dir = std::env::temp_dir().join(format!(
-        "wrench_loader_cli_office_test_{}",
+        "gear_loader_cli_office_test_{}",
         std::process::id()
     ));
     fs::create_dir_all(&temp_dir).expect("temp dir should be created");
 
-    let output = Command::new(env!("CARGO_BIN_EXE_wrench-loader"))
+    let output = Command::new(env!("CARGO_BIN_EXE_gear-loader"))
         .args([
             "extract",
             "--input",
@@ -149,15 +147,13 @@ fn cli_extract_office_fails_closed_without_approved_parser() {
 
 #[test]
 fn cli_extract_feed_writes_feed_bundle_and_item_evidence() {
-    let temp_dir = std::env::temp_dir().join(format!(
-        "wrench_loader_cli_feed_test_{}",
-        std::process::id()
-    ));
+    let temp_dir =
+        std::env::temp_dir().join(format!("gear_loader_cli_feed_test_{}", std::process::id()));
     fs::create_dir_all(&temp_dir).expect("temp dir should be created");
     let bundle_path = temp_dir.join("feed-bundle.json");
     let evidence_path = temp_dir.join("feed-evidence.json");
 
-    let status = Command::new(env!("CARGO_BIN_EXE_wrench-loader"))
+    let status = Command::new(env!("CARGO_BIN_EXE_gear-loader"))
         .args([
             "extract",
             "--input",
@@ -194,12 +190,12 @@ fn cli_extract_feed_writes_feed_bundle_and_item_evidence() {
 #[test]
 fn cli_extract_fails_closed_when_secret_block_policy_matches() {
     let temp_dir = std::env::temp_dir().join(format!(
-        "wrench_loader_cli_secret_test_{}",
+        "gear_loader_cli_secret_test_{}",
         std::process::id()
     ));
     fs::create_dir_all(&temp_dir).expect("temp dir should be created");
 
-    let output = Command::new(env!("CARGO_BIN_EXE_wrench-loader"))
+    let output = Command::new(env!("CARGO_BIN_EXE_gear-loader"))
         .args([
             "extract",
             "--input",

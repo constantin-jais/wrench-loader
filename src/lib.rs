@@ -1,7 +1,7 @@
-//! wrench-loader — sovereign canonical ingestion and extraction.
+//! gear-loader — sovereign canonical ingestion and extraction.
 //!
 //! The crate is contract-first: it defines stable request/output/evidence
-//! shapes before adding heavy format-specific parsers. Wrench Loader extracts
+//! shapes before adding heavy format-specific parsers. Gear Loader extracts
 //! and normalizes; it does not store durable truth and does not decide what
 //! sources matter.
 
@@ -19,10 +19,10 @@ pub struct ProjectCard {
 
 /// The repository's initial scope card.
 pub const PROJECT: ProjectCard = ProjectCard {
-    name: "wrench-loader",
+    name: "gear-loader",
     role: "canonical ingestion and extraction",
     upstream: "GitHub stars as design capital, including Xberg patterns",
-    relationship: "Wrench brick for Rumble/Bolt/Gear; outputs contracts and evidence, not durable memory.",
+    relationship: "Gear substrate for Rumble/Bolt; outputs contracts and evidence, not durable memory.",
 };
 
 /// Human-readable summary for CLI smoke runs.
@@ -1369,7 +1369,7 @@ mod tests {
 
     #[test]
     fn project_card_names_the_repo_and_boundary() {
-        assert_eq!(PROJECT.name, "wrench-loader");
+        assert_eq!(PROJECT.name, "gear-loader");
         assert!(summary().contains(PROJECT.role));
         assert!(PROJECT.relationship.contains("not durable memory"));
     }
@@ -1555,7 +1555,8 @@ mod tests {
             &req,
             RawInput {
                 input_type: SourceInputType::Office,
-                media_type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                media_type:
+                    "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
                 bytes: &bytes,
                 uri: None,
                 filename: Some("minimal.docx"),
