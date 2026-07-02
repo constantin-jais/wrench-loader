@@ -9,7 +9,7 @@ Rumble products need ingestion for notes, learning sessions, feeds, specs, blog 
 
 ## Decision
 
-`wrench-loader` owns canonical extraction contracts before heavy parser implementation.
+`gear-loader` owns canonical extraction contracts before heavy parser implementation.
 
 The first public contracts are:
 
@@ -20,11 +20,11 @@ The first public contracts are:
 
 Canonical truth is structured JSON. Markdown is only a readable projection.
 
-`wrench-loader` may produce a `GearSourceCandidate`, but it does not create durable `SourceRef`; Gear Memory owns storage, indexing, lifecycle, deletion/anonymization, and retrieval.
+`gear-loader` may produce a `GearSourceCandidate`, but it does not create durable `SourceRef`; Gear Memory owns storage, indexing, lifecycle, deletion/anonymization, and retrieval.
 
 ## Boundaries
 
-- Wrench Loader extracts, normalizes, detects risk, and emits evidence.
+- Gear Loader extracts, normalizes, detects risk, and emits evidence.
 - Gear Memory stores/indexes and owns durable memory/source refs.
 - Rumble products decide product meaning, UX, publication, curation, sessions, and notes.
 - Bolt orchestrates and gates; it does not become a parser.

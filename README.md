@@ -1,11 +1,11 @@
-# Wrench Loader
+# Gear Loader
 
-[![CI](https://github.com/constantin-jais/wrench-loader/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/constantin-jais/wrench-loader/actions/workflows/ci.yml)
-[![Security](https://github.com/constantin-jais/wrench-loader/actions/workflows/security.yml/badge.svg?branch=main)](https://github.com/constantin-jais/wrench-loader/actions/workflows/security.yml)
-[![Contracts](https://github.com/constantin-jais/wrench-loader/actions/workflows/contracts.yml/badge.svg?branch=main)](https://github.com/constantin-jais/wrench-loader/actions/workflows/contracts.yml)
+[![CI](https://github.com/constantin-jais/gear-loader/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/constantin-jais/gear-loader/actions/workflows/ci.yml)
+[![Security](https://github.com/constantin-jais/gear-loader/actions/workflows/security.yml/badge.svg?branch=main)](https://github.com/constantin-jais/gear-loader/actions/workflows/security.yml)
+[![Contracts](https://github.com/constantin-jais/gear-loader/actions/workflows/contracts.yml/badge.svg?branch=main)](https://github.com/constantin-jais/gear-loader/actions/workflows/contracts.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-**Layer:** Wrench — Tooling  
+**Layer:** Gear — Runtime Substrate  
 **Role:** document ingestion and canonical extraction  
 **Mission:** transform heterogeneous raw sources into clean, structured, auditable content.
 
@@ -13,7 +13,7 @@
 
 ## Stack role
 
-- **Layer:** Wrench — Tooling.
+- **Layer:** Gear — Runtime Substrate.
 - **Role:** document ingestion and canonical extraction.
 - **Mission:** transform heterogeneous raw sources into clean, structured, auditable content.
 - **Maturity:** `dojo`.
@@ -41,6 +41,10 @@ Expected next evidence:
 
 Dogfooding claims should stay backed by visible commands, fixtures, CI workflows, generated reports, or linked docs.
 
+## Renamed from wrench-loader
+
+**D15 decision:** Layer classification moved from tool-first (_Wrench = ingestion tooling isolated from products_) to client-first (_Gear = runtime substrate linked by product consumers_). This repository was renamed from `wrench-loader` to `gear-loader` to reflect its actual consumption pattern: both factory agents (Bolt orchestration) and product runtimes (Rumble feed-mind, Rumble Canvas, …) depend on the same ingestion contracts and canonical outputs as production runtime dependencies. **One contract, two clients** — therefore, it is Gear (substrate), not Wrench (isolated tools). See [`ecosystem/adr/D15-layer-classification-by-client.md`](https://github.com/constantin-jais/ecosystem/blob/main/adr/D15-layer-classification-by-client.md) for the classification criterion.
+
 ## Contributing
 
 See:
@@ -51,7 +55,7 @@ See:
 
 ## Forge role
 
-`wrench-loader` is a Wrench capability used by Rumble products and Bolt plans when raw documents need deterministic extraction, normalization, and evidence before they can become trustworthy context.
+`gear-loader` is a Gear capability used by Rumble products and Bolt plans when raw documents need deterministic extraction, normalization, and evidence before they can become trustworthy context.
 
 ## Boundary
 
@@ -59,7 +63,7 @@ It must not own long-term knowledge UX, product meaning, orchestration decisions
 
 ## Purpose
 
-`wrench-loader` performs the dirty work of ingestion: PDF, Office, OCR, HTML, archives, and other rich documents are extracted into canonical text and metadata.
+`gear-loader` performs the dirty work of ingestion: PDF, Office, OCR, HTML, archives, and other rich documents are extracted into canonical text and metadata.
 
 It produces evidence and structured outputs that higher layers can trust.
 
@@ -75,7 +79,7 @@ It produces evidence and structured outputs that higher layers can trust.
 - Long-term knowledge management UX: belongs to Rumble.
 - Persistent truth or semantic memory: belongs to Gear.
 - Strategic decisions about what to ingest next: belongs to Bolt or the product.
-- Database/security inspection: belongs to `wrench-db-inspect` or `wrench-inspect` depending on scope.
+- Database/security inspection: belongs to dedicated inspection tools (e.g., `gear-db-inspect`) depending on scope.
 
 ## Allowed Dependencies
 
@@ -85,7 +89,7 @@ It produces evidence and structured outputs that higher layers can trust.
 
 ## Product Vision Challenge
 
-`wrench-loader` must stay an ingestion worker/service, not a knowledge product. Its success is extraction quality, repeatability, and traceable evidence.
+`gear-loader` must stay an ingestion worker/service, not a knowledge product. Its success is extraction quality, repeatability, and traceable evidence.
 
 ## Contract-first P0
 
@@ -100,7 +104,7 @@ P0 implementation begins with deterministic UTF-8 text, Markdown, and simple HTM
 
 Strict boundary:
 
-- Wrench Loader extracts and normalizes.
+- Gear Loader extracts and normalizes.
 - Gear Memory stores, indexes, and owns durable `SourceRef` lifecycle.
 - Rumble products decide product meaning and UX.
 - Bolt orchestrates and gates.
@@ -114,9 +118,9 @@ cargo run -- extract \
   --input fixtures/minimal.md \
   --input-type markdown \
   --media-type text/markdown \
-  --out /tmp/wrench-loader.canonical.json \
-  --evidence /tmp/wrench-loader.evidence.json \
-  --gear-source-candidate /tmp/wrench-loader.gear-source-candidate.json
+  --out /tmp/gear-loader.canonical.json \
+  --evidence /tmp/gear-loader.evidence.json \
+  --gear-source-candidate /tmp/gear-loader.gear-source-candidate.json
 ```
 
 PDF and Office remain P0 in the product contract, but the default runtime currently fails closed until parser dependencies pass `cargo deny` advisory checks or sandboxed workers are selected. OCR remains explicit P1.
@@ -126,8 +130,8 @@ cargo run -- extract \
   --input fixtures/minimal.pdf \
   --input-type pdf \
   --media-type application/pdf \
-  --out /tmp/wrench-loader.pdf.canonical.json \
-  --evidence /tmp/wrench-loader.pdf.evidence.json
+  --out /tmp/gear-loader.pdf.canonical.json \
+  --evidence /tmp/gear-loader.pdf.evidence.json
 # expected today: fail-closed, no approved PDF parser enabled
 ```
 
@@ -138,8 +142,8 @@ cargo run -- extract \
   --input fixtures/minimal.docx \
   --input-type office \
   --media-type application/vnd.openxmlformats-officedocument.wordprocessingml.document \
-  --out /tmp/wrench-loader.office.canonical.json \
-  --evidence /tmp/wrench-loader.office.evidence.json
+  --out /tmp/gear-loader.office.canonical.json \
+  --evidence /tmp/gear-loader.office.evidence.json
 # expected today: fail-closed, no approved Office parser enabled
 ```
 
@@ -150,8 +154,8 @@ cargo run -- extract \
   --input fixtures/minimal.rs \
   --input-type code \
   --media-type text/rust \
-  --out /tmp/wrench-loader.code.canonical.json \
-  --evidence /tmp/wrench-loader.code.evidence.json
+  --out /tmp/gear-loader.code.canonical.json \
+  --evidence /tmp/gear-loader.code.evidence.json
 ```
 
 Feed parsing is a bounded parse-only primitive; polling and curation stay in Rumble/Bolt:
@@ -162,8 +166,8 @@ cargo run -- extract \
   --input-type feed \
   --feed-format rss \
   --media-type application/rss+xml \
-  --out /tmp/wrench-loader.feed-bundle.json \
-  --evidence /tmp/wrench-loader.feed-evidence.json
+  --out /tmp/gear-loader.feed-bundle.json \
+  --evidence /tmp/gear-loader.feed-evidence.json
 ```
 
 Security policy can fail closed:

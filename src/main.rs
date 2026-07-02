@@ -1,6 +1,6 @@
 use std::{env, fs, process::ExitCode};
 
-use wrench_loader::{
+use gear_loader::{
     EXTRACTION_REQUEST_FORMAT, ExtractionInput, ExtractionPolicy, ExtractionRequest, FeatureToggle,
     FeedFormat, FindingMode, InputKind, NetworkPolicy, PromptInjectionMode, RawInput,
     SourceInputType, extract_code_text, extract_feed, extract_office_text, extract_pdf_text,
@@ -261,6 +261,6 @@ fn parse_prompt_mode(value: &str) -> Result<PromptInjectionMode, String> {
 
 fn print_help() {
     println!(
-        "wrench-loader\n\nCommands:\n  extract --input <path> --input-type <markdown|html|text|code|pdf|office> --media-type <type> --out <canonical.json> --evidence <evidence.json> [--gear-source-candidate <candidate.json>] [--secret-mode detect|redact|block] [--pii-mode detect|redact|block] [--prompt-injection-mode detect|quarantine_on_high]\n\n  extract --input <feed> --input-type feed --feed-format <rss|atom|json-feed> --media-type <type> --out <feed-bundle.json> [--evidence <item-evidence-array.json>]"
+        "gear-loader\n\nCommands:\n  extract --input <path> --input-type <markdown|html|text|code|pdf|office> --media-type <type> --out <canonical.json> --evidence <evidence.json> [--gear-source-candidate <candidate.json>] [--secret-mode detect|redact|block] [--pii-mode detect|redact|block] [--prompt-injection-mode detect|quarantine_on_high]\n\n  extract --input <feed> --input-type feed --feed-format <rss|atom|json-feed> --media-type <type> --out <feed-bundle.json> [--evidence <item-evidence-array.json>]"
     );
 }

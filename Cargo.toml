@@ -1,10 +1,10 @@
 [package]
-name = "wrench-loader"
+name = "gear-loader"
 version = "0.0.0"
 edition = "2024"
 rust-version = "1.95"
 license = "MIT"
-repository = "https://github.com/constantin-jais/wrench-loader"
+repository = "https://github.com/constantin-jais/gear-loader"
 description = "Sovereign rich-document ingestion worker/service backed by Xberg."
 
 [dependencies]

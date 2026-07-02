@@ -1,4 +1,4 @@
-# Contributing to wrench-loader
+# Contributing to gear-loader
 
 Thanks for taking the time to contribute.
 
